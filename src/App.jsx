@@ -1,11 +1,8 @@
+import Resume from './Resume-Components/Resume';
 import './App.css'
-
+// import Output from './Output';
 function App() {
-    return (
-      <>
-        <h1 className='text-red-500'>Hello Adam</h1>
-      </>
-    )
+    return <Resume/>;
 }
 
 export default App
