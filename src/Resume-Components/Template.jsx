@@ -7,7 +7,7 @@ export default function Template({value}) {
       case value !== undefined && value !== '':
         return value;
       default:
-        return 'Your name here';
+        return 'Your name goes here';
     }
   }  
   

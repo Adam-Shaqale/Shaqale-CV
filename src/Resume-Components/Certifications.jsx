@@ -7,7 +7,7 @@ export default function Certifications() {
   return (
     <>
       {/* Certifications */}
-      <div>
+      <div className="flex flex-col gap-5 w-full justify-center items-center">
         {/* Section 6 */}
         <h1 className="font-bold text-[2rem] w-full text-center">
           Certifications

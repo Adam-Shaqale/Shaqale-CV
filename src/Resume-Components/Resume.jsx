@@ -7,17 +7,19 @@ import Work from "./Work";
 import Marital from "./Marital";
 import Certifications from "./Certifications";
 import Template from "./Template";
+import Workflow from "./Workflow";
+import GenerateCV from "./GenerateCv";
 
 export default function Resume() {
-  // function charSize(size, allowedSize) {
-  //   if (size > allowedSize) {
-  //     return (
-  //       <p className="text-red-500">Warning: Size exceeds the allowed limit!</p>
-  //     );
-  //   }
-
-  //   return <p>Character size is within the allowed limit.</p>;
-  // }
+  function charSize(size, allowedSize) {
+    if (size > allowedSize) {
+      return (
+        <p className="text-red-500 text-center">
+          The size you entered exceeds the acceptable limit.
+        </p>
+      );
+    }
+  }
 
   const [isPreview, setIsPreview] = useState(false);
 
@@ -48,13 +50,11 @@ export default function Resume() {
       );
   }, []);
 
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
-    const handleValue = (newVaue) => {
-      setValue(newVaue);
-    };
-    console.log(value)
-
+  const handleValue = (newVaue) => {
+    setValue(newVaue);
+  };
 
   return (
     <div className=" w-full flex flex-col justify-center items-center p-5">
@@ -78,28 +78,28 @@ export default function Resume() {
         </button>
       </div>
       {isPreview ? (
-          <Template value={value}/>
+        <Template value={value} />
       ) : (
         <>
           {/* Input Form */}
-          <form
-            action=""
-            className="max-w-[600px] w-full flex flex-col justify-center items-center gap-5 shadow-md px-2 mt-5 py-5 border-2 border-blue-500 rounded-md"
-          >
-            <Contact change={handleValue}/>
-            <Objective/>
-            <Skills/>
-            <Education/>
-            <Work/>
-            <Marital/>
-            <Certifications/>
-            <button
-              type="submit"
-              className="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
-            >
-              Generate CV
-            </button>
-          </form>
+          <div className="max-w-[600px] w-full flex flex-col justify-center items-center gap-5 shadow-md px-2 mt-5 py-5 border-2 border-blue-500 rounded-md">
+            <Workflow
+              children={[
+                <Contact
+                  key="contact"
+                  change={handleValue}
+                  charSize={charSize}
+                />,
+                <Objective key="objective" />,
+                <Skills key="skills" />,
+                <Education key="education" />,
+                <Work key="work" />,
+                <Marital key="marital" />,
+                <Certifications key="certifications" />,
+                <GenerateCV key="generateCV" />,
+              ]}
+            />
+          </div>
         </>
       )}
     </div>

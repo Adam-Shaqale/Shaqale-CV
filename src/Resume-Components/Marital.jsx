@@ -2,7 +2,7 @@ export default function Marital() {
   return (
     <>
       {/* Marital Status */}
-      <div>
+      <div className="flex flex-col gap-5 w-full justify-center items-center">
         {/* Section 5 */}
         <h1 className="font-bold text-[2rem] w-full text-center">
           Marital Status

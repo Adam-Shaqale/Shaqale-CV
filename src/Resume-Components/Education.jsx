@@ -8,7 +8,7 @@ export default function Education() {
   return (
     <>
       {/* Education */}
-      <div>
+      <div className="flex flex-col gap-5 w-full justify-center items-center">
         {/* Section 3 */}
         <h1 className="font-bold text-[2rem] w-full text-center">Education</h1>
         {education.map((ed, id) => (

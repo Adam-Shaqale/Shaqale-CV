@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
-export default function Contact({change}) {
+export default function Contact({change, charSize}) {
   const [inputValue, setInputValue] = useState('');
   const storeValue = (e) => {
     setInputValue(e.target.value);
@@ -14,11 +13,19 @@ export default function Contact({change}) {
     if(specificValue) {
       document.getElementById("full-name").value = specificValue;
     }
-  })
+  }), [];
+
+  const [nameInput, setNameInput] = useState("");
+  const nameRef = useRef(null);
+  useEffect(() => {
+    if(nameRef) {
+      setNameInput(nameRef.current);
+    }
+  }, [])
   return (
     <>
       {/* Section 1 */}
-      <h1 className="mt-5 font-bold text-[2rem] w-full text-center">
+      <h1 className="mt-5 mb-2 font-bold text-[2rem] w-full text-center">
         Contact Info
       </h1>
       {/* Contact Information */}
@@ -34,6 +41,7 @@ export default function Contact({change}) {
               <span>Enter your fullname</span>
             </label>
             <input
+              ref={nameRef}
               onChange={storeValue}
               value={inputValue}
               required
@@ -42,6 +50,7 @@ export default function Contact({change}) {
               id="full-name"
               className=" border border-gray-300 text-gray-700 py-2 px-3 mb-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
             />
+              {nameRef.current && charSize(nameRef.current.value.length, 32)} 
           </div>
           {/* Phone Number */}
           <div className="flex flex-col gap-2 w-full max-w-[400px]">

@@ -10,7 +10,7 @@ export default function Work() {
   return (
     <>
       {/* Work Experience */}
-      <div>
+      <div className="flex flex-col gap-5 w-full justify-center items-center">
         <h1 className="font-bold text-[2rem] w-full text-center">
           Work Experience
         </h1>

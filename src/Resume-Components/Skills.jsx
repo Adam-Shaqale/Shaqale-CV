@@ -12,12 +12,12 @@ export default function Skills() {
   return (
     <>
       {/* Skills */}
-      <div>
+      <div className="flex flex-col gap-4">
         {/* Section 3 */}
         <h1 className="font-bold text-[2rem] w-full text-center">Skills</h1>
         {skills.map((skill, id) => (
           <div
-            key={id}
+            key={skill.id}
             className="w-full flex flex-col gap-2 border-[1.5px] p-2 border-blue-400 rounded-md shadow-md"
           >
             <label

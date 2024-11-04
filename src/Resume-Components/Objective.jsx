@@ -2,7 +2,7 @@ export default function Objective() {
     return (
       <>
         {/* Objective */}
-        <div>
+        <div className="flex flex-col gap-2 justify-center items-center">
           {/* Section 2 */}
           <h1 className="font-bold text-[2rem] w-full text-center">
             Objective
