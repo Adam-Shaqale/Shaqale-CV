@@ -50,10 +50,26 @@ export default function Resume() {
       );
   }, []);
 
-  const [value, setValue] = useState("");
+  const [value1, setValue1] = useState("");
+  const [value2, setValue2] = useState("");
+  const [value3, setValue3] = useState("");
+  const [value4, setValue4] = useState("");
+  const [value5, setValue5] = useState("");
 
-  const handleValue = (newVaue) => {
-    setValue(newVaue);
+  const handleFullName = (newValue) => {
+    setValue1(newValue);
+  };
+  const handlePhoneNumber = (newValue) => {
+    setValue2(newValue);
+  };
+  const handleEmail = (newValue) => {
+    setValue3(newValue);
+  };
+  const handleCountry = (newValue) => {
+    setValue4(newValue);
+  };
+  const handleCity = (newValue) => {
+    setValue5(newValue);
   };
 
   return (
@@ -78,7 +94,13 @@ export default function Resume() {
         </button>
       </div>
       {isPreview ? (
-        <Template value={value} />
+        <Template 
+          fullName={value1}
+          phoneNumber={value2}
+          email={value3}
+          country={value4}
+          city={value5}
+         />
       ) : (
         <>
           {/* Input Form */}
@@ -87,7 +109,11 @@ export default function Resume() {
               children={[
                 <Contact
                   key="contact"
-                  change={handleValue}
+                  fullName={handleFullName}
+                  phoneNumber={handlePhoneNumber}
+                  email={handleEmail}
+                  country={handleCountry}
+                  city={handleCity}
                   charSize={charSize}
                 />,
                 <Objective key="objective" />,
